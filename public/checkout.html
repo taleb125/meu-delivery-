@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Meu Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-container { max-width: 600px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; }
+        .checkout-container h2 { color: #ff5722; }
+        .resumo-pedido { border-top: 1px solid #ddd; margin-top: 20px; padding-top: 20px; }
+        .resumo-pedido h3 { text-align: left; }
+        .resumo-pedido ul { list-style: none; padding: 0; text-align: left; }
+        .resumo-pedido li { margin-bottom: 5px; }
+        .total-checkout { font-size: 1.5em; font-weight: bold; color: #333; margin-top: 15px; text-align: left; }
+        .total-checkout span { float: right; }
+        .btn-voltar { background-color: #555; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px; width: 100%; }
+        .btn-voltar:hover { background-color: #333; }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Seu Pedido</h2>
+        <div class="resumo-pedido">
+            <h3>Resumo do Pedido</h3>
+            <ul id="lista-resumo-pedido"></ul>
+            <p class="total-checkout">Total: <span id="total-resumo-pedido">R$ 0,00</span></p>
+        </div>
+        <button class="btn-voltar" onclick="window.location.href='index.html'">Voltar para o Início</button>
+    </div>
+    <script>
+        const carrinhoSalvo = JSON.parse(localStorage.getItem('carrinho'));
+        const totalSalvo = parseFloat(localStorage.getItem('totalCarrinho'));
+        const listaResumo = document.getElementById('lista-resumo-pedido');
+        const totalResumo = document.getElementById('total-resumo-pedido');
+        if (carrinhoSalvo && carrinhoSalvo.length > 0) {
+            carrinhoSalvo.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+                listaResumo.appendChild(li);
+            });
+            totalResumo.innerText = `R$ ${totalSalvo.toFixed(2)}`;
+        } else {
+            listaResumo.innerHTML = '<li>Nenhum item no pedido.</li>';
+        }
+    </script>
+</body>
+</html>
