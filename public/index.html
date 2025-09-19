@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Meu Delivery</h1>
+    </header>
+    <main class="container">
+        <section class="cardapio">
+            <h2>Nosso Cardápio</h2>
+            <div class="item-cardapio" data-produto="Hambúrguer Clássico">
+                <img src="https://via.placeholder.com/200" alt="Hambúrguer Clássico">
+                <h3>Hambúrguer Clássico</h3>
+                <p>Um delicioso hambúrguer com queijo, alface e tomate.</p>
+                <span class="preco">R$ 25,00</span>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="item-cardapio" data-produto="Pizza Margherita">
+                <img src="https://via.placeholder.com/200" alt="Pizza Margherita">
+                <h3>Pizza Margherita</h3>
+                <p>Massa fina com molho de tomate, queijo e manjericão fresco.</p>
+                <span class="preco">R$ 45,00</span>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+        <aside class="carrinho">
+            <h2>Seu Carrinho</h2>
+            <ul id="lista-carrinho">
+                <li class="aviso-vazio">Seu carrinho está vazio.</li>
+            </ul>
+            <div class="total-carrinho">
+                <span>Total:</span>
+                <span id="total-carrinho">R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar">Finalizar Pedido</button>
+        </aside>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
